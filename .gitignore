@@ -1,2 +1,33 @@
-cypress.env.json
-node_modules
+*.class
+
+/node_modules
+
+# SSH Keys
+
+*.pem
+*.ppk
+
+# Mobile Tools for Java (J2ME)
+*.jar
+*.war
+*.ear
+
+#Gradle temporary files
+target/
+
+#Eclipse files
+**/.project
+**/.classpath
+**/.settings/
+/bin/
+blog/bin/
+**/.tern-project
+
+#IntelliJ files
+**/*.iml
+**/.idea
+**/.gradle
+
+#Virtual Machine crash logs
+hs_err_pid*
+/.metadata/
