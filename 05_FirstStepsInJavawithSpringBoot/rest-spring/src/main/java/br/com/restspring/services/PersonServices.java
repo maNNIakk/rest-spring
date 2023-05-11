@@ -7,53 +7,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.restspring.exceptions.ResourceNotFoundException;
-import br.com.restspring.model.Person;
-import br.com.restspring.repositories.PersonRepository;
+import br.com.restspring.model.PersonVO;
+import br.com.restspring.repositories.PersonVORepository;
 
 
 @Service
-public class PersonServices {
+public class PersonVOServices {
 	
-	private Logger logger = Logger.getLogger(PersonServices.class.getName());
+	private Logger logger = Logger.getLogger(PersonVOServices.class.getName());
 	
 	@Autowired
-	PersonRepository repository;
+	PersonVORepository repository;
 	
-	public List<Person> findAll(){
+	public List<PersonVO> findAll(){
 		
 		logger.info("Finding everyone!");
 		return repository.findAll();
 	}
 
-	public Person findById(Long id) {
-		logger.info("Finding one person!");
+	public PersonVO findById(Long id) {
+		logger.info("Finding one PersonVO!");
 		
 		
 		return repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 	}
 	
-	public Person create(Person person) {
-		logger.info("Creating one person");
+	public PersonVO create(PersonVO PersonVO) {
+		logger.info("Creating one PersonVO");
 		
-		return repository.save(person);
+		return repository.save(PersonVO);
 	}
 	
-	public Person update(Person person) {
-		logger.info("Updating one person");
+	public PersonVO update(PersonVO PersonVO) {
+		logger.info("Updating one PersonVO");
 		
-		var entity = repository.findById(person.getId())
+		var entity = repository.findById(PersonVO.getId())
 		.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 		
-		entity.setFirstName(person.getFirstName());
-		entity.setLastName(person.getLastName());
-		entity.setAddress(person.getAddress());
-		entity.setGender(person.getGender());
-		return repository.save(person);
+		entity.setFirstName(PersonVO.getFirstName());
+		entity.setLastName(PersonVO.getLastName());
+		entity.setAddress(PersonVO.getAddress());
+		entity.setGender(PersonVO.getGender());
+		return repository.save(PersonVO);
 	}
 	
 	public void delete(Long id) {
-		logger.info("Deleting one person");
+		logger.info("Deleting one PersonVO");
 		
 		var entity = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
