@@ -3,7 +3,7 @@ package br.com.restspring.data.vo.v1;
 import java.io.Serializable;
 
 public class PersonVO implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -102,11 +102,4 @@ public class PersonVO implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-
 }
