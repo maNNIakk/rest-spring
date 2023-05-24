@@ -12,7 +12,7 @@ import br.com.restspring.mapper.DozerMapper;
 import br.com.restspring.model.Person;
 import br.com.restspring.unittests.mapper.mocks.MockPerson;
 
-public class DozerConverterTest {
+public class PersonDozerConverterTest {
     
     MockPerson inputObject;
 

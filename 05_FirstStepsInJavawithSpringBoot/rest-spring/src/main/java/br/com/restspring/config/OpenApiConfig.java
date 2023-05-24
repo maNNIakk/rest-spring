@@ -11,7 +11,7 @@ import io.swagger.v3.oas.models.info.Info;
 public class OpenApiConfig {
 
 	@Bean
-	public OpenAPI customOpenAPI() {
+	OpenAPI customOpenAPI() {
 		return new OpenAPI()
 				.info(new Info()
 						.title("RESTful API with JavaSE-17 and Spring Boot 3")
