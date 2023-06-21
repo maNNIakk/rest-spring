@@ -1,16 +1,20 @@
-package br.com.restspring.data.vo.v1.security;
+package br.com.restspring.integrationtests.vo;
 
 import java.io.Serializable;
 
-public class AccountCredentialsVO implements Serializable {
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class AccountCredentialsVO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private String username;
 	private String password;
-
-	public AccountCredentialsVO() {
-	}
+	
+	
+	
+	public AccountCredentialsVO() {}
 
 	public AccountCredentialsVO(String username, String password) {
 		this.username = username;
@@ -37,10 +41,8 @@ public class AccountCredentialsVO implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		result = prime * result
-				+ ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -65,5 +67,7 @@ public class AccountCredentialsVO implements Serializable {
 			return false;
 		return true;
 	}
-
+	
+	
+	
 }

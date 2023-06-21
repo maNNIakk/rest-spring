@@ -15,7 +15,6 @@
 	<properties>
 		<java.version>20</java.version>
 		<dozer.version>6.4.0</dozer.version>
-		<jackson.version>2.15.0</jackson.version>
 		<springdoc.version>2.0.2</springdoc.version>
 		<testcontainers.version>1.18.1</testcontainers.version>
 		<java-jwt.version>4.4.0</java-jwt.version>
@@ -80,7 +79,6 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>${jackson.version}</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
