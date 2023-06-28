@@ -9,31 +9,34 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "person")
 
 public class Person implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "first_name", nullable = false, length = 80)
 	private String firstName;
 
 	@Column(name = "last_name", nullable = false, length = 80)
 	private String lastName;
-	
+
 	@Column(nullable = false, length = 100)
 	private String address;
-	
+
 	@Column(nullable = false, length = 6)
 	private String gender;
-	
-	public Person() {}
+
+	@Column(nullable = false)
+	private Boolean enabled;
+
+	public Person() {
+	}
 
 	public Long getId() {
 		return id;
@@ -75,15 +78,26 @@ public class Person implements Serializable {
 		this.gender = gender;
 	}
 
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
+		result = prime * result
+				+ ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result
+				+ ((lastName == null) ? 0 : lastName.hashCode());
 		return result;
 	}
 
@@ -100,6 +114,11 @@ public class Person implements Serializable {
 			if (other.address != null)
 				return false;
 		} else if (!address.equals(other.address))
+			return false;
+		if (enabled == null) {
+			if (other.enabled != null)
+				return false;
+		} else if (!enabled.equals(other.enabled))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -123,11 +142,4 @@ public class Person implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-
 }

@@ -15,6 +15,7 @@ import br.com.restspring.exceptions.ResourceNotFoundException;
 import br.com.restspring.mapper.DozerMapper;
 import br.com.restspring.model.Person;
 import br.com.restspring.repositories.PersonRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PersonServices {
@@ -74,6 +75,20 @@ public class PersonServices {
 		return vo;
 	}
 
+	@Transactional
+	public PersonVO disablePerson(Long id) {
+		
+		logger.info("Disabling one person!");
+		
+		repository.disablePerson(id);
+		
+		var entity = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+		var vo = DozerMapper.parseObject(entity, PersonVO.class);
+		vo.add(linkTo(methodOn(PersonController.class).findById(id)).withSelfRel());
+		return vo;
+	}
+	
 	public void delete(Long id) {
 
 		logger.info("Deleting one person!");
@@ -82,4 +97,5 @@ public class PersonServices {
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 		repository.delete(entity);
 	}
+	
 }
