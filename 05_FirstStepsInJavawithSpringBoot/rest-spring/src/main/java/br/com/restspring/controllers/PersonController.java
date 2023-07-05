@@ -6,6 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,7 +49,7 @@ public class PersonController {
 					@ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
 					@ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
 					@ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content) })
-	public ResponseEntity<Page<PersonVO>> findAll(
+	public ResponseEntity<PagedModel<EntityModel<PersonVO>>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "12") Integer size,
 			@RequestParam(value = "direction", defaultValue = "asc") String direction) {
@@ -55,8 +57,35 @@ public class PersonController {
 		var sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC
 				: Direction.ASC;
 
-		Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "firstName"));
+		Pageable pageable = PageRequest.of(page, size,
+				Sort.by(sortDirection, "firstName"));
 		return ResponseEntity.ok(service.findAll(pageable));
+	}
+
+	@GetMapping(value = "/findPersonByName/{firstName}", produces = {
+			MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,
+			MediaType.APPLICATION_YML })
+	@Operation(summary = "Finds persons by their names", description = "Finds all Persons by name", tags = {
+			"People" }, responses = {
+					@ApiResponse(description = "Success", responseCode = "200", content = {
+							@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PersonVO.class))) }),
+					@ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
+					@ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
+					@ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
+					@ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content) })
+	public ResponseEntity<PagedModel<EntityModel<PersonVO>>> findPersonsByName(
+			@PathVariable(value = "firstName") String firstName,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
+			@RequestParam(value = "size", defaultValue = "12") Integer size,
+			@RequestParam(value = "direction", defaultValue = "asc") String direction) {
+
+		var sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC
+				: Direction.ASC;
+
+		Pageable pageable = PageRequest.of(page, size,
+				Sort.by(sortDirection, "firstName"));
+		return ResponseEntity
+				.ok(service.findPersonByName(firstName, pageable));
 	}
 
 	@CrossOrigin(origins = "http://localhost:8080")
