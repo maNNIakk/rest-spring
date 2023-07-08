@@ -18,7 +18,7 @@
 		<springdoc.version>2.0.2</springdoc.version>
 		<testcontainers.version>1.18.1</testcontainers.version>
 		<java-jwt.version>4.4.0</java-jwt.version>
-	</properties>
+	</properties> 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
