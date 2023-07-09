@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rest-spring</name>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 		<dozer.version>6.4.0</dozer.version>
 		<springdoc.version>2.0.2</springdoc.version>
 		<testcontainers.version>1.18.1</testcontainers.version>
