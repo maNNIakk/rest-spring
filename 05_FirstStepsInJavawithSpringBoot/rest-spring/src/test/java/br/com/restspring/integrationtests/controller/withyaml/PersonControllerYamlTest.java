@@ -369,15 +369,15 @@ public class PersonControllerYamlTest extends AbstractIntegrationTest {
 		var content = untreatedContent.replace("\n","").replace("\r", "");
 		
 
-		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost/api/person/v1/423\""));
-		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost/api/person/v1/211\""));
-		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost/api/person/v1/75\""));
+		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost:8888/api/person/v1/423\""));
+		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost:8888/api/person/v1/211\""));
+		assertTrue(content.contains("rel: \"self\"    href: \"http://localhost:8888/api/person/v1/75\""));
 
-		assertTrue(content.contains("rel: \"first\"  href: \"http://localhost/api/person/v1?direction=asc&page=0&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("rel: \"prev\"  href: \"http://localhost/api/person/v1?direction=asc&page=2&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("rel: \"self\"  href: \"http://localhost/api/person/v1?page=3&size=10&direction=asc\""));
-		assertTrue(content.contains("rel: \"next\"  href: \"http://localhost/api/person/v1?direction=asc&page=4&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("rel: \"last\"  href: \"http://localhost/api/person/v1?direction=asc&page=100&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("rel: \"first\"  href: \"http://localhost:8888/api/person/v1?direction=asc&page=0&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("rel: \"prev\"  href: \"http://localhost:8888/api/person/v1?direction=asc&page=2&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("rel: \"self\"  href: \"http://localhost:8888/api/person/v1?page=3&size=10&direction=asc\""));
+		assertTrue(content.contains("rel: \"next\"  href: \"http://localhost:8888/api/person/v1?direction=asc&page=4&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("rel: \"last\"  href: \"http://localhost:8888/api/person/v1?direction=asc&page=100&size=10&sort=firstName,asc\""));
 		
 		
 		
