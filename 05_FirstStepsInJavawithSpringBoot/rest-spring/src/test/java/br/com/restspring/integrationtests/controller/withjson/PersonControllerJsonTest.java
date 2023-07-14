@@ -326,15 +326,15 @@ public class PersonControllerJsonTest extends AbstractIntegrationTest {
 				.body().asString();
 //		.as(new TypeRef<List<PersonVO>>() {});
 
-		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost/api/person/v1/423"));
-		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost/api/person/v1/211"));
-		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost/api/person/v1/75"));
+		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost:8888/api/person/v1/423"));
+		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost:8888/api/person/v1/211"));
+		assertTrue(content.contains("\"_links\":{\"self\":{\"href\":\"http://localhost:8888/api/person/v1/75"));
 
-		assertTrue(content.contains("\"first\":{\"href\":\"http://localhost/api/person/v1?direction=asc&page=0&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("\"prev\":{\"href\":\"http://localhost/api/person/v1?direction=asc&page=2&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("\"self\":{\"href\":\"http://localhost/api/person/v1?page=3&size=10&direction=asc\""));
-		assertTrue(content.contains("\"next\":{\"href\":\"http://localhost/api/person/v1?direction=asc&page=4&size=10&sort=firstName,asc\""));
-		assertTrue(content.contains("\"last\":{\"href\":\"http://localhost/api/person/v1?direction=asc&page=100&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("\"first\":{\"href\":\"http://localhost:8888/api/person/v1?direction=asc&page=0&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("\"prev\":{\"href\":\"http://localhost:8888/api/person/v1?direction=asc&page=2&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("\"self\":{\"href\":\"http://localhost:8888/api/person/v1?page=3&size=10&direction=asc\""));
+		assertTrue(content.contains("\"next\":{\"href\":\"http://localhost:8888/api/person/v1?direction=asc&page=4&size=10&sort=firstName,asc\""));
+		assertTrue(content.contains("\"last\":{\"href\":\"http://localhost:8888/api/person/v1?direction=asc&page=100&size=10&sort=firstName,asc\""));
 		assertTrue(content.contains("\"page\":{\"size\":10,\"totalElements\":1004,\"totalPages\":101,\"number\":3}"));
 		
 		

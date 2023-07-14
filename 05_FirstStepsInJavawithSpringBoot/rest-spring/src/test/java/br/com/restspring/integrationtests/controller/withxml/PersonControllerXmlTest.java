@@ -335,22 +335,22 @@ public class PersonControllerXmlTest extends AbstractIntegrationTest {
 //		.as(new TypeRef<List<PersonVO>>() {});
 
 		assertTrue(content.contains(
-				"<links><rel>self</rel><href>http://localhost/api/person/v1/423</href></links>"));
+				"<links><rel>self</rel><href>http://localhost:8888/api/person/v1/423</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>self</rel><href>http://localhost/api/person/v1/211</href></links>"));
+				"<links><rel>self</rel><href>http://localhost:8888/api/person/v1/211</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>self</rel><href>http://localhost/api/person/v1/75</href></links>"));
+				"<links><rel>self</rel><href>http://localhost:8888/api/person/v1/75</href></links>"));
 
 		assertTrue(content.contains(
-				"<links><rel>first</rel><href>http://localhost/api/person/v1?direction=asc&amp;page=0&amp;size=10&amp;sort=firstName,asc</href></links>"));
+				"<links><rel>first</rel><href>http://localhost:8888/api/person/v1?direction=asc&amp;page=0&amp;size=10&amp;sort=firstName,asc</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>prev</rel><href>http://localhost/api/person/v1?direction=asc&amp;page=2&amp;size=10&amp;sort=firstName,asc</href></links>"));
+				"<links><rel>prev</rel><href>http://localhost:8888/api/person/v1?direction=asc&amp;page=2&amp;size=10&amp;sort=firstName,asc</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>self</rel><href>http://localhost/api/person/v1?page=3&amp;size=10&amp;direction=asc</href></links>"));
+				"<links><rel>self</rel><href>http://localhost:8888/api/person/v1?page=3&amp;size=10&amp;direction=asc</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>next</rel><href>http://localhost/api/person/v1?direction=asc&amp;page=4&amp;size=10&amp;sort=firstName,asc</href></links>"));
+				"<links><rel>next</rel><href>http://localhost:8888/api/person/v1?direction=asc&amp;page=4&amp;size=10&amp;sort=firstName,asc</href></links>"));
 		assertTrue(content.contains(
-				"<links><rel>last</rel><href>http://localhost/api/person/v1?direction=asc&amp;page=100&amp;size=10&amp;sort=firstName,asc</href></links>"));
+				"<links><rel>last</rel><href>http://localhost:8888/api/person/v1?direction=asc&amp;page=100&amp;size=10&amp;sort=firstName,asc</href></links>"));
 
 	}
 
